@@ -1,0 +1,20 @@
+// 3838. Weighted Word Mapping
+
+
+
+class Solution {
+public:
+    string mapWordWeights(vector<string>& words, vector<int>& weights) {
+        string res;
+        res.reserve(words.size());
+        for(string & s : words){
+            int sum=0;
+            for(char c : s)
+                sum+=weights[c-'a'];
+            int m=sum%26;
+            char map = char('z' - m);
+            res.push_back(map);
+        }
+        return res;
+    }
+};
